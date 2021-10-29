@@ -5,8 +5,3 @@
   # This is where we will look for package.json/.nvmrc/etc.
   # If not set, defaults to the root directory.
   base = "client/"
-
-
-  # Default build command.
-  command = "echo 'default context'"
-

@@ -5,11 +5,10 @@ import "./Result.css";
 new ClipboardJS(".button");
 
 const Result = ({ images }) => {
-	console.log(images);
 	return (
 		<>
 			<div className="success">
-				<span class="material-icons">done</span>
+				<span className="material-icons">done</span>
 			</div>
 			<h1>Uploaded Successfully!</h1>
 			<img src={images[0].data_url} alt={images[0].file.name} />
@@ -18,6 +17,7 @@ const Result = ({ images }) => {
 					id="input"
 					placeholder={images[0].data_url}
 					value={images[0].file.name}
+					readOnly
 				/>
 				<button
 					className="button file-btn drop"

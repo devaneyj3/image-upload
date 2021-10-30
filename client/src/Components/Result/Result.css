@@ -1,0 +1,23 @@
+.success {
+  border: 1px solid black;
+  border-radius: 50%;
+  background-color: #219653;color: white;
+  padding: 5px;
+}
+
+img {
+  width: 50%;
+  border-radius: 10px;
+}
+
+input {
+  margin-right: 30px;
+  border: none;
+  background-color: #f6f8fb;
+}
+.copy {
+  border-radius: 5px;
+  background-color: #f6f8fb;
+  margin: 30px 0 30px 0;
+  border: 1px solid #f6f8fb;
+}

@@ -1,62 +1,46 @@
 import React from "react";
-import Uploading from "../Uploading/Uploading";
-import ImageUploading from "react-images-uploading";
-import "./Image.css";
 
-import logo from "./image.svg";
+import Uploading from "../Uploading/Uploading";
+import Result from "../Result/Result";
 import Card from "../Card/Card";
+
+import "./Image.css";
+import ChooseImage from "../ChooseImage/ChooseImage";
 
 const Image = () => {
 	const [images, setImages] = React.useState([]);
-	const maxNumber = 69;
+	const [loading, setLoading] = React.useState(true);
 
-	const onChange = (imageList, addUpdateIndex) => {
+	const onChange = (imageList) => {
 		// data for submit
-		console.log(imageList, addUpdateIndex);
 		setImages(imageList);
+		setTimeout(() => {
+			setLoading(false);
+		}, 1000);
 	};
 
-	return (
-		<Card>
-			{images.length < 1 ? (
-				<>
-					<h1>Upload your image</h1>
-					<p>Files shoul be Jpeg, PNG ...</p>
-					<ImageUploading
-						multiple
-						value={images}
-						onChange={onChange}
-						maxNumber={maxNumber}
-						dataURLKey="data_url">
-						{({ onImageUpload, isDragging, dragProps }) => (
-							// write your building UI
-							<>
-								<div className="upload__image-wrapper">
-									<img
-										style={isDragging ? { color: "red" } : undefined}
-										onClick={onImageUpload}
-										{...dragProps}
-										src={logo}
-										alt="Mountain Landscape"
-									/>
-									<p className="action-text">Drag & Drop your image here</p>
-								</div>
-								<p className="action-text">Or</p>
-								<button
-									onClick={onImageUpload}
-									{...dragProps}
-									className="file-btn drop">
-									Choose a file
-								</button>
-							</>
-						)}
-					</ImageUploading>
-				</>
-			) : (
+	let component;
+	if (images.length < 1) {
+		component = (
+			<Card>
+				<ChooseImage images={images} onChange={onChange} />
+			</Card>
+		);
+	} else if (loading === false) {
+		component = (
+			<Card>
+				<Result images={images} />
+			</Card>
+		);
+	} else {
+		component = (
+			<Card>
 				<Uploading />
-			)}
-		</Card>
-	);
+			</Card>
+		);
+	}
+
+	return <>{component}</>;
 };
 
 export default Image;

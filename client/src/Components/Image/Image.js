@@ -1,8 +1,10 @@
 import React from "react";
+import Uploading from "../Uploading/Uploading";
 import ImageUploading from "react-images-uploading";
 import "./Image.css";
 
 import logo from "./image.svg";
+import Card from "../Card/Card";
 
 const Image = () => {
 	const [images, setImages] = React.useState([]);
@@ -15,7 +17,7 @@ const Image = () => {
 	};
 
 	return (
-		<>
+		<Card>
 			{images.length < 1 ? (
 				<>
 					<h1>Upload your image</h1>
@@ -51,9 +53,9 @@ const Image = () => {
 					</ImageUploading>
 				</>
 			) : (
-				<h1>loading...</h1>
+				<Uploading />
 			)}
-		</>
+		</Card>
 	);
 };
 

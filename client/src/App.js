@@ -1,7 +1,11 @@
+import Image from "./Components/Image/Image";
+
+import "./App.css";
+
 const App = () => {
 	return (
 		<div className="App">
-			<h1>Welcome to the image uploder</h1>
+			<Image />
 		</div>
 	);
 };

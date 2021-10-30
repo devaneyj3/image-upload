@@ -1,0 +1,23 @@
+.upload__image-wrapper {
+  height: 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 4px dashed skyblue;
+  margin:40px;
+  background-color: #f6f8fb;
+  width: 50%;
+}
+
+.action-text {
+  color: lightgrey;
+}
+
+.file-btn {
+  background-color: #2F80ED;
+  color: white;
+  border-radius: 8px;
+  padding: 10px;
+  border: none;
+}
